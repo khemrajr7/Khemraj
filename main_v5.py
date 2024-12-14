@@ -86,9 +86,10 @@ disease_info = {
 
 # TensorFlow Model Prediction
 def model_prediction(test_image):
-    # Specify the correct path to your model file in the Downloads folder
-    model_path = "C:/Users/rajhi/Downloads/Model_v2/model_version_1.keras"  # Updated with the new model's full path
-    model = tf.keras.models.load_model(model_path)  # Load the model from the specified path
+    model_path = os.path.abspath(os.path.join(os.getcwd(),  "Plant_disease.h5"))
+#loading the model
+    model= tf.keras.models.load_model(model_path)
+
 
     # Load the image from the uploaded file
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(224, 224))  # Update target size to 224x224
